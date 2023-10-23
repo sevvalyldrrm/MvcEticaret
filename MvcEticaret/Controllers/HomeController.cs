@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MvcEticaret.Components;
 using MvcEticaret.Models;
 using System.Diagnostics;
 
 namespace MvcEticaret.Controllers
 {
-	public class HomeController : Controller
+    public class HomeController : Controller
 	{
 		//method oluşturduk
 		private List<ProductItemModel> GetSampleProducts()
@@ -14,7 +13,8 @@ namespace MvcEticaret.Controllers
 		{
 			new ProductItemModel
 		{
-			Title = "Fancy Product",
+			IsOption = true,
+			Title = "Yağmurluk",
 			StarCount = 0,
 			OldPrice = 19.99m,
 			Price = 39.99m,
@@ -23,7 +23,8 @@ namespace MvcEticaret.Controllers
 		},
 			new ProductItemModel
 		{
-			Title = "Special Item",
+				IsOption = false,
+			Title = "Kamp Çadırı",
 			StarCount = 5,
 			OldPrice = 29.99m,
 			Price = 19.99m,
@@ -32,7 +33,8 @@ namespace MvcEticaret.Controllers
 		},
 				new ProductItemModel
 		{
-			Title = "Sale Item",
+			IsOption = true,
+			Title = "Suluk Çantası",
 			StarCount = 0,
 			OldPrice = 39.99m,
 			Price = 29.99m,
@@ -41,16 +43,18 @@ namespace MvcEticaret.Controllers
 		},
 				new ProductItemModel
 		{
-			Title = "Popular Item",
+			IsOption = false,
+			Title = "Kamp Çantası",
 			StarCount = 4,
-			OldPrice = 49.99m,
+			OldPrice = 0m,
 			Price = 39.99m,
 			ImageUrl = "https://st-thenorthface.mncdn.com/Content/media/ProductImg/original/636734978447063571.jpg",
 			IsSale = false
 		},
 				new ProductItemModel
 		{
-			Title = "Sale Item",
+			IsOption = false,
+			Title = "Kar Şapkası",
 			StarCount = 0,
 			OldPrice = 19.99m,
 			Price = 9.99m,
@@ -59,7 +63,8 @@ namespace MvcEticaret.Controllers
 		},
 				new ProductItemModel
 		{
-			Title = "Fancy Product",
+			IsOption = true,
+			Title = "Yağmurluk",
 			StarCount = 0,
 			OldPrice = 29.99m,
 			Price = 59.99m,
@@ -68,7 +73,8 @@ namespace MvcEticaret.Controllers
 		},
 				new ProductItemModel
 		{
-			Title = "Special Item",
+			IsOption = false,
+			Title = "Kadın Ayakkabı",
 			StarCount = 5,
 			OldPrice = 59.99m,
 			Price = 39.99m,
@@ -77,9 +83,10 @@ namespace MvcEticaret.Controllers
 		},
 				new ProductItemModel
 		{
-			Title = "Popular Item",
+			IsOption = false,
+			Title = "Unisex Eldiven",
 			StarCount = 5,
-			OldPrice = 69.99m,
+			OldPrice = 0m,
 			Price = 89.99m,
 			ImageUrl = "https://st-thenorthface.mncdn.com/Content/media/ProductImg/original/638029172066220024.jpg",
 			IsSale = false

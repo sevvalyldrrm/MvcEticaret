@@ -1,4 +1,4 @@
-﻿@model List<MvcEticaret.Components.ProductItemModel>
+﻿@model IEnumerable<ProductItemModel>
 
 @await Html.PartialAsync("_Navigation")
 
@@ -16,61 +16,7 @@
 		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 			@foreach (var item in Model)
 			{
-				<div class="col mb-5">
-					<div class="card h-100">
-
-						<!-- Product image-->
-						<div class="position-relative">
-							@if (item.IsSale)
-							{
-								<span class="sale-badge position-absolute top-0 end-0 bg-black text-white px-2 py-1 m-2">Sale</span>
-							}
-							<img class="card-img-top" src="@item.ImageUrl" alt="..." />
-						</div>
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">@item.Title</h5>
-
-								<div class="text-center">
-									@for (int i = 0; i < item.StarCount; i++)
-									{
-										<i class="bi bi-star-fill" style="color:gold"></i>
-									}
-								</div>
-
-								@if (item.Title == "Fancy Product")
-								{
-									<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-										<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-									</div>
-
-									<p>
-										$@item.OldPrice - $@item.Price
-									</p>
-								}
-								else
-								{
-									<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-										<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-									</div>
-
-									@if (item.Title == "PopulerItem")
-									{
-										<p>$@item.Price</p>
-									} else
-									{
-										<p><s>$@item.OldPrice</s> - $@item.Price</p>
-									}
-								}
-
-							</div>
-						</div>
-						<!-- Product actions-->
-
-					</div>
-				</div>
+				@await Component.InvokeAsync("ProductItem", item) 
 			}
 		</div>
 	</div>
